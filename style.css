@@ -1,0 +1,13 @@
+.container {
+    widows: 90%;
+}
+
+img {
+    width: 50%;
+}
+
+.favorite {
+    display: none;
+    color: white;
+    background-color: red;
+}
