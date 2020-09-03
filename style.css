@@ -1,13 +1,32 @@
-.container {
-    widows: 90%;
+* {
+    padding: none;
+    margin: none;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+ul {
+   display: grid;
+   grid-template-rows: 340px 340px 340px 340px;
+   grid-template-columns: 340px 340px 340px 340px;
+}
+
+li {
+    grid-column-start: auto;
+    grid-column-end: auto;
+    grid-row-start: auto;
+    grid-row-end: auto;
 }
 
 img {
-    width: 50%;
+    height: 60%;
+    width: 80%;
+    max-height: 400px;
+    max-width: 600px;
 }
 
-.favorite {
-    display: none;
-    color: white;
-    background-color: red;
+ul {
+    list-style-type: none;
 }

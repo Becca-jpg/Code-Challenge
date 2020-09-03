@@ -1,26 +1,24 @@
-let generate_btn = document.querySelector(".generate_btn");
 let favorite_btn = document.querySelector(".favorite");
-let key = '906f9f50-3b14-4630-a89a-a0421d1e5317';
+let imageURL = 'https://api.thecatapi.com/v1/images/search?limit=8&api_key=906f9f50-3b14-4630-a89a-a0421d1e5317&size=thumb';
+//Load Pictures on Page Load
 
-generate_btn.addEventListener('click', fetchPics);
+function grabData() {
+   const fetchImages = fetch(imageURL);
 
-function fetchPics() {
+   const main = document.getElementById("main");
 
-    let container = document.querySelector(".container");
-    container.innerHTML = '';
+   main.innerHTML = "<p>Pics are coming!";
 
-    fetch('https://api.thecatapi.com/v1/images/search').then(response => response.json()).then((data) => {
-        let catImgUrl = data[0].url
+   fetchImages.then(response => {
+      return response.json();
+   }).then(data => {
+      main.innerHTML = catUrlList(data);
+   });
 
-        let imgElement = document.createElement("img")
-        imgElement.setAttribute('src', `${catImgUrl}`)
-        imgElement.classList
+   function catUrlList(data) {
+      let catImgUrl = data.map(image => `<li><img src=${image.url}></li>`).join("\n");
+      return `<ul>${catImgUrl}</ul>`
+   }
+};
 
-
-        let container = document.querySelector(".container");
-        container.appendChild(imgElement)
-
-        document.querySelector(".favorite").style.display = "inline-block";
-
-    }).catch(err => console.log(err))
-}
+grabData();
