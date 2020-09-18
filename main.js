@@ -16,7 +16,7 @@ function grabData() {
    });
 
    function catUrlList(data) {
-      let catImgUrl = data.map(image => `<li><img src=${image.url}></li>`).join("\n");
+      let catImgUrl = data.map(image => `<li><img src=${image.url} alt="This kitty must be a shy one :("></li>`).join("\n");
       return `<ul>${catImgUrl}</ul>`
    }
 };
