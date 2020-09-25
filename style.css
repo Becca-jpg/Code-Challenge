@@ -9,7 +9,7 @@ h1 {
 
 ul {
    display: grid;
-   grid-template-rows: 340px 340px 340px 340px;
+   grid-template-rows: 340px 340px;
    grid-template-columns: 340px 340px 340px 340px;
 }
 
@@ -29,4 +29,23 @@ img {
 
 ul {
     list-style-type: none;
+}
+
+.favorite {
+    background-color: red;
+    color: white;
+    border-radius: 15%;
+    margin: 5px;
+    margin-top: 10px;
+}
+
+.list li {
+    cursor: pointer;
+} 
+.list li:hover:after, 
+.list li.fav:after {
+    content: 'Test 1';
+}
+.list li.fav:hover:after {
+    content: 'Test 2';
 }
